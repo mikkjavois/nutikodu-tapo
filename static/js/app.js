@@ -309,9 +309,19 @@ function renderPriceChart() {
     canvas.width = container.clientWidth;
     canvas.height = container.clientHeight;
     
-    const prices = priceChartData.prices;
     const median = priceChartData.median;
     const currentTime = priceChartData.current_time;
+
+    // Render less data on mobile
+    const isMobile = window.innerWidth <= 768;
+    let prices = priceChartData.prices;
+    if (isMobile) {
+        const lowerBound = currentTime - 3600; // 1 hour ago
+        const upperBound = currentTime + 16 * 3600; // 16 hours future
+        prices = prices.filter(p => p.timestamp >= lowerBound && p.timestamp <= upperBound);
+
+        if (!prices || prices.length === 0) return;
+    }
     
     // Get selected device
     const chartSelector = document.getElementById('chartDeviceSelector');

@@ -9,7 +9,7 @@ Looge fail `env.py` ja lisage oma Tapo kasutajaandmed:
 
 ```python
 # env.py
-CRED = ["tapo.user@email.com", "password"]
+CRED = ["tapo.user@example.com", "password"]
 ```
 #### 1. Teekide installeerimine
 ```bash
