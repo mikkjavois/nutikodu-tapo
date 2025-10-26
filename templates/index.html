@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutikodu</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="card">
+            <h2>⚡ Seadmed</h2>
+            <div id="message" class="message"></div>
+            
+            <div class="device-list" id="deviceList">
+                <!-- Seadmed laaditakse siia -->
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📊 Elektri hind ja aktiivsustabel</h2>
+            <div style="margin-bottom: 15px;">
+                <label for="chartDeviceSelector" style="font-weight: 600; margin-right: 10px;">Vali seade:</label>
+                <select id="chartDeviceSelector" class="state-select" onchange="renderPriceChart()">
+                    <option value="">-</option>
+                </select>
+            </div>
+            <div id="priceChart">
+                <canvas id="chartCanvas"></canvas>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>➕ Lisa Uus Seade</h2>
+            <div class="add-device-form" style="display: flex; flex-direction: column; gap: 10px;">
+                <input type="text" id="deviceName" placeholder="Seadme nimi">
+                <input type="text" id="deviceIP" placeholder="IP aadress">
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="number" id="deviceThreshold" placeholder="Piirhind" step="0.1" min="0.1" value="1.5" style="flex: 1;">
+                    <select id="thresholdTypeSelect" class="state-select" style="width: 120px;">
+                        <option value="multiplier">× med</option>
+                        <option value="fixed">s/kWh</option>
+                    </select>
+                </div>
+                <button onclick="addDevice()">Lisa Seade</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

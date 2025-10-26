@@ -1,0 +1,420 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.threshold-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.threshold-section label {
+    font-weight: 600;
+    color: #333;
+}
+
+.threshold-section input {
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100px;
+}
+
+.threshold-section button {
+    padding: 8px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.threshold-section button:hover {
+    background: #5568d3;
+}
+
+.device-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.device-item {
+    background: #f8f9fa;
+    border: 2px solid #bcbec0;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+}
+
+.device-item h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.device-item .ip {
+    color: #666;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.device-item .threshold {
+    color: #007bff;
+    margin-bottom: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.device-item .threshold input {
+    width: 80px;
+    padding: 5px 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.device-item .threshold button {
+    padding: 5px 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.device-item .threshold button:hover {
+    background: #0056b3;
+}
+
+.device-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.state-select {
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s;
+}
+
+.state-select:hover {
+    border-color: #667eea;
+}
+
+.state-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+}
+
+.add-device-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 120px auto;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-device-form input {
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.add-device-form button {
+    padding: 10px 25px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.add-device-form button:hover {
+    background: #218838;
+}
+
+.timeframes {
+    margin-top: 20px;
+}
+
+.timeframe-item {
+    background: #e8f4f8;
+    border-left: 4px solid #667eea;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.timeframe-item strong {
+    color: #667eea;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.status-on {
+    background: #28a745;
+    box-shadow: 0 0 8px #28a745;
+}
+
+.status-off {
+    background: #dc3545;
+}
+
+.status-auto {
+    background: #007bff;
+}
+
+.status-unreachable {
+    background: #999999;
+}
+
+.message {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    font-weight: 600;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    font-weight: 600;
+}
+
+.current-time {
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Price Chart Styles */
+#priceChart {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+#chartCanvas {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 0;
+    }
+    
+    .card {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+    
+    .card h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    
+    .add-device-form {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    
+    #priceChart {
+        height: 250px;
+    }
+    
+    .device-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .device-item {
+        padding: 12px;
+    }
+    
+    .device-item h3 {
+        font-size: 1.1em;
+    }
+    
+    .device-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .state-select {
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 10px 15px;
+    }
+    
+    .threshold-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .threshold-section input {
+        width: 100%;
+    }
+    
+    .threshold-section button {
+        width: 100%;
+        padding: 10px 20px;
+    }
+    
+    .message {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .device-item .threshold {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    
+    .device-item .threshold input {
+        width: 100%;
+    }
+    
+    .device-item .threshold button {
+        width: 100%;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .card {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    
+    .card h2 {
+        font-size: 1.2em;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    
+    #priceChart {
+        height: 200px;
+    }
+}
